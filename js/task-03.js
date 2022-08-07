@@ -14,29 +14,17 @@ const images = [
 ];
 
 const galleryEl = document.querySelector('.gallery');
-// const liEl = document.createElement('li');
-// const imgEl = document.createElement('img');
-// liEl.appendChild(imgEl)
-// imgEl.src = images[1].url;
-// imgEl.alt = images[1].alt;
-// console.log(imgEl)
-// galleryEl.appendChild(liEl)
+let markup = ``;
 
-// const galleryEl = document.querySelector('body');
-// console.log(galleryEl)
-// const eee = `<li><img src="${images[0].url}" alt="${images[0].alt}"></li>`;
-// console.log(eee);
-// const abc = "acb"
-
-// galleryEl.insertAdjacentHTML("beforeend",eee);
-
-const foo = array => {
+const addMarkup = array => {
   images.forEach((image, index) => {
-    const eee = `<li class="list_item"><img src="${image.url}" alt="${image.alt}" width=450 ></li>`;
-    console.log(eee);
-
-    galleryEl.insertAdjacentHTML('beforeend', eee);
+    markup =
+      markup +
+      `<li class="list_item"><img src="${image.url}" alt="${image.alt}" width=300 height=200 ></li>`;
   });
+  galleryEl.insertAdjacentHTML('beforeend', markup);
 };
 
-foo(images);
+addMarkup(images);
+
+galleryEl.style.display = 'flex';

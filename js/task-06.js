@@ -1,15 +1,13 @@
 const inputEl = document.querySelector('#validation-input');
-const maxLength = Number(inputEl.getAttribute('data-length'));
+const allowedLength = Number(inputEl.getAttribute('data-length'));
 
-inputEl.addEventListener('blur', foo);
+inputEl.addEventListener('blur', validatesInput);
 
-function foo(evt) {
-  const realLength = inputEl.value.length;
-
-  if (realLength <= maxLength) {
-    inputEl.classList.add('valid');
-  } else inputEl.classList.remove('valid');
-  if (realLength > maxLength) {
+function validatesInput(evt) {
+  let inputLength = inputEl.value.length;
+  if (inputLength < allowedLength || inputLength > allowedLength) {
     inputEl.classList.add('invalid');
-  } else inputEl.classList.remove('invalid');
+  } else {
+    inputEl.classList.replace('invalid', 'valid');
+  }
 }

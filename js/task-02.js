@@ -7,22 +7,16 @@ const ingredients = [
   'Condiments',
 ];
 
-// const firstEl = document.createElement('li')
-// console.log(firstEl)
-// firstEl.textContent= 'Potatoes';
-// firstEl.classList.add('item');
-const ul = document.querySelector('#ingredients');
-// console.log(ul);
-// ul.append(firstEl)
+const listEl = document.querySelector('#ingredients');
 
-const fooo = array => {
-  let aa = [];
+const addElements = array => {
+  let arrayOfEl = [];
   array.forEach((element, index) => {
-    aa.push(document.createElement('li'));
-    aa[index].textContent = array[index];
-    aa[index].classList.add('item');
+    arrayOfEl.push(document.createElement('li'));
+    arrayOfEl[index].textContent = array[index];
+    arrayOfEl[index].classList.add('item');
   });
-  ul.append(...aa);
+  listEl.append(...arrayOfEl);
 };
 
-fooo(ingredients);
+addElements(ingredients);
